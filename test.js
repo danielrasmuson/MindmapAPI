@@ -49,11 +49,21 @@ function maps(){
   });
 }
 
-function getNodes(){
-
+function getNodes(mapId){
+  return Rx.Observable.create((observer)=>{
+    _get({
+        method: 'mm.maps.getSlides',
+        map_id: mapId
+      })
+      .forEach((data)=>{
+        observer.onNext(data);
+      }, (err)=>{
+        observer.onError(err)
+      })
+  });
 }
 
 
-maps().forEach((maps)=>{
-  console.log(maps);
+getNodes(angelHackMapId).forEach((nodes)=>{
+  console.log(nodes);
 })
