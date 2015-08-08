@@ -2,20 +2,24 @@ var request = require('request-promise');
 var Promise = require("bluebird");
 var parseString = require('xml2js').parseString;
 var Rx = require('rx');
+var _ = require('lodash');
 require('dotenv').load(); // load .env
 
-function _get(){
+const angelHackMapId = '415467547';
+
+function _get(config){
+  let qs = {
+    api_key: process.env.MINDMAP_SECRET,
+    auth_token: process.env.MINDMAP_TOKEN,
+    api_sig: process.env.MINDMAP_SIG,
+    response_format: 'xml',
+  };
+  _.assign(qs, config)
   return Rx.Observable.create((observer)=>{
     request
       .get({
         url: "https://www.mindmeister.com/services/rest",
-        qs: {
-          api_key: process.env.MINDMAP_SECRET,
-          auth_token: process.env.MINDMAP_TOKEN,
-          method: 'mm.maps.getList',
-          response_format: 'xml',
-          api_sig: process.env.MINDMAP_SIG,
-        }
+        qs: qs
       })
       .then((xml)=>{
         parseString(xml, (err, result)=>{
@@ -34,13 +38,19 @@ function _get(){
 
 function maps(){
   return Rx.Observable.create((observer)=>{
-    _get()
+    _get({
+        method: 'mm.maps.getList',
+      })
       .forEach((data)=>{
         observer.onNext(data.rsp.maps[0].map);
       }, (err)=>{
         observer.onError(err)
       })
   });
+}
+
+function getNodes(){
+
 }
 
 
