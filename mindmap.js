@@ -78,6 +78,6 @@ function getNodes(mapId){
 }
 
 
-maps(angelHackMapId).forEach((nodes)=>{
-  console.log(nodes);
-})
+// maps(angelHackMapId).forEach((nodes)=>{
+//   console.log(nodes);
+// })
