@@ -1,20 +1,34 @@
 var request = require('request-promise');
-var Promise = require("bluebird");
 var parseString = require('xml2js').parseString;
 var Rx = require('rx');
 var _ = require('lodash');
+var md5 = require('md5');
 require('dotenv').load(); // load .env
 
 const angelHackMapId = '415467547';
+
+function calculateSignature(params){
+  const SHARED_KEY = process.env.MINDMAP_SHARED;
+  return md5(
+    SHARED_KEY+
+    Object.keys(params)
+      .sort()
+      .map((key)=>{
+        return key+params[key]
+      })
+      .join('')
+  )
+}
 
 function _get(config){
   let qs = {
     api_key: process.env.MINDMAP_SECRET,
     auth_token: process.env.MINDMAP_TOKEN,
-    api_sig: process.env.MINDMAP_SIG,
     response_format: 'xml',
   };
   _.assign(qs, config)
+  qs.api_sig = calculateSignature(qs);
+
   return Rx.Observable.create((observer)=>{
     request
       .get({
@@ -56,7 +70,7 @@ function getNodes(mapId){
         map_id: mapId
       })
       .forEach((data)=>{
-        observer.onNext(data);
+        observer.onNext(data.rsp.err);
       }, (err)=>{
         observer.onError(err)
       })
@@ -64,6 +78,6 @@ function getNodes(mapId){
 }
 
 
-getNodes(angelHackMapId).forEach((nodes)=>{
+maps(angelHackMapId).forEach((nodes)=>{
   console.log(nodes);
 })
