@@ -4,10 +4,11 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
-    "bluebird": "^2.9.34",
+    "lodash": "^3.10.1",
     "request-promise": "^0.4.3",
     "rx": "^3.0.0",
-    "shelljs": "^0.5.1"
+    "shelljs": "^0.5.1",
+    "xml2js": "^0.4.10"
   },
   "devDependencies": {},
   "scripts": {
