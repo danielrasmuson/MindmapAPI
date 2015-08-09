@@ -42,4 +42,16 @@ router.get('/add', function(req, res, next) {
   })
 });
 
+router.get('/edit', function(req, res, next) {
+  mindmap.editNode({
+    mapId: angelHackMapId,
+    ideaId: req.param('id'),
+    title: req.param('title'),
+    link: req.param('link'),
+  }).forEach(function(result){
+    res.send(result);
+  })
+});
+
+
 module.exports = router;

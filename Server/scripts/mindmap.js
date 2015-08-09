@@ -27,6 +27,7 @@ function _get(config){
   _.assign(qs, config)
   qs.api_sig = calculateSignature(qs);
 
+  console.log(qs)
   return Rx.Observable.create((observer)=>{
     request
       .get({
@@ -92,8 +93,29 @@ function newNode({mapId, parentId, title, link}){
   });
 }
 
+function editNode({mapId, ideaId, title, link}){
+  console.log('edit node');
+  console.log(mapId, ideaId, title)
+  return Rx.Observable.create((observer)=>{
+    _get({
+        method: 'mm.ideas.change',
+        map_id: mapId,
+        idea_id: ideaId,
+        title: title,
+        link: link,
+      })
+      .forEach((data)=>{
+        observer.onNext(data)
+      }, (err)=>{
+        observer.onError(err)
+      })
+  });
+}
+
+
 module.exports = {
   nodes: getNodes,
-  newNode: newNode
+  newNode: newNode,
+  editNode: editNode
 }
 

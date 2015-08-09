@@ -29,6 +29,7 @@ function BodyController(Mindmap, Drive){
                 console.log('folder');
                 console.log(folder);
                 // call file change here
+                Mindmap.editNode(folder.title, folders[0].nodeId, folder.link)
               })
 
 
@@ -90,8 +91,22 @@ function Mindmap($http, $q, SERVER_DOMAIN){
     return deferred.promise;
   }
 
+  function editNode(title, id, link){
+    var deferred = $q.defer();
+
+    $http
+      .get(SERVER_DOMAIN+'map/edit?title='+title+'&id='+id+"&link="+link)
+      .then(function(res){
+        deferred.resolve(res.data);
+      })
+
+    return deferred.promise;
+  }
+
+
   return {
     driveFolders: driveFolders,
-    addNode: addNode
+    addNode: addNode,
+    editNode: editNode
   } 
 }
