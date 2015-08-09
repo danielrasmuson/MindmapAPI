@@ -7,26 +7,41 @@ angular.module('app')
 
 function BodyController(Mindmap){
   var me = this;
-  me.attachDriveFiles = function(){
-    swal("Good job!", "You clicked the button!", "success");
+  var mindmap = document.getElementById('mindmap');
+
+  function reloadMindmap(){
+    mindmap.src = mindmap.src; 
   }
 
-  Mindmap
-    .driveFolders()
-    .then(function(folders){
+  me.attachDriveFiles = function(){
+    Mindmap
+      .driveFolders()
+      .then(function(folders){
 
-      // this is where you will query google drive for folders
-      Mindmap
-        .addNode('My New Awesome Node', folders[0].nodeId)
-        .then(function(status){
-        })
+        // this is where you will query google drive for folders
+        Mindmap
+          .addNode('My New Awesome Node', folders[0].nodeId)
+          .then(function(status){
+            reloadMindmap();
+            swal({
+                title: "Folder Synced with Drive!",
+                text:"Any Files you add in drive will be updated in this folder.",
+                type: "success",
+              },
+              function(){
+                mindmap.focus();
+              }
+            );
+          })
 
-    })
+      })
+  }
+
 
 
 
   setTimeout(function(){
-    document.querySelector('#mindmap').focus();
+    mindmap.focus();
   }, 1000)
 }
 
