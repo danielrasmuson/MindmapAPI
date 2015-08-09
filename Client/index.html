@@ -7,7 +7,13 @@
 <body>
 
 
-<iframe width="800" height="600" frameborder="0" scrolling="auto" src="https://www.mindmeister.com:/maps/show?api_key=26182cd389ae2e1dbdcca1090e91e682&auth_token=3188a3c9fce4944343512e703112fae3&id=415467547&api_sig=df650f391fdf43a1f43c70beb0af0910"></iframe>
+<iframe width="800" height="600" frameborder="0" scrolling="auto" id="mindmap" src="https://www.mindmeister.com:/maps/show?api_key=26182cd389ae2e1dbdcca1090e91e682&auth_token=3188a3c9fce4944343512e703112fae3&id=415467547&api_sig=df650f391fdf43a1f43c70beb0af0910"></iframe>
+
+<script>
+  setTimeout(function(){
+    document.querySelector('#mindmap').focus();
+  }, 1000)
+</script>
   
 </body>
 </html>
