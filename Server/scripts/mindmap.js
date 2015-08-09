@@ -5,8 +5,6 @@ var _ = require('lodash');
 var md5 = require('md5');
 require('dotenv').load(); // load .env
 
-const angelHackMapId = '415467547';
-
 function calculateSignature(params){
   const SHARED_KEY = process.env.MINDMAP_SHARED;
   return md5(
@@ -93,22 +91,7 @@ function newNode({mapId, parentId, title}){
   });
 }
 
-function isDriveLink(text){
-  return text.indexOf('https://drive.google.com') !== -1;
+module.exports = {
+  nodes: getNodes
 }
 
-getNodes(angelHackMapId).forEach((nodes)=>{
-  nodes
-    .filter((node)=>{
-      return isDriveLink(node.title[0])
-    })
-    .forEach((node)=>{
-      newNode({
-        mapId: angelHackMapId,
-        parentId: node.id[0],
-        title: 'My New Inserted Node'
-      }).forEach((data)=>{
-        console.log(data)
-      })
-    })
-})
