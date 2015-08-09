@@ -18,8 +18,8 @@
         <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
       </md-button>
       <h2 style="padding-left: 10%;">
-        <span style="font-weight: 800;">Connected-Map</span>
-        <span style="font-weight: 300; text-size: 14px"> - Connecting Scattered Thoughts, Documents, Photos, Tasks, and More..</span>
+        <span style="font-weight: 800;">Connected-Map:</span>
+        <span style="font-weight: 300; text-size: 14px"> Connecting Scattered Thoughts, Documents, Photos, Tasks, and More..</span>
       </h2>
       <span flex></span>
       <md-button class="md-icon-button" aria-label="Favorite">
@@ -42,20 +42,17 @@
   </div> -->
 
 
-  <div>
-    <md-content class="">
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-          <md-content class="">
-            <h1 class="md-display-2">Tab One</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-          </md-content>
-        </md-tab>
-        <md-tab label="two">
-          <md-content class="">
-            <h1 class="md-display-2">Tab Three</h1>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-          </md-content>
+  <div ng-controller="AppCtrl" class="sample" layout="column">
+    <md-content class="md-padding">
+      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+        <md-tab ng-repeat="tab in tabs"
+                ng-disabled="tab.disabled"
+                label="{{tab.title}}">
+          <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+            <div ng-bind="tab.content"></div>
+            <br/>
+            <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
+          </div>
         </md-tab>
       </md-tabs>
     </md-content>
