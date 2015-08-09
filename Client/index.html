@@ -42,8 +42,8 @@
   </div> -->
 
 
-  <div ng-controller="AppCtrl" class="sample" layout="column">
-    <md-content class="md-padding">
+  <div ng-controller="TabsCtrl" class="sample" layout="column" style="padding-top: 20px; padding-bottom: 20px; height: 250px;">
+    <md-content class="md-padding" style="height: 250px;">
       <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
         <md-tab ng-repeat="tab in tabs"
                 ng-disabled="tab.disabled"
