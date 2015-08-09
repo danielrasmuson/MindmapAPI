@@ -44,13 +44,14 @@
 
   <div ng-controller="TabsCtrl" class="sample" layout="column" style="padding-top: 20px; padding-bottom: 20px; height: 250px;">
     <md-content class="md-padding" style="height: 250px;">
-      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect >
         <md-tab ng-repeat="tab in tabs"
                 ng-disabled="tab.disabled"
-                label="{{tab.title}}">
-          <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+                label="{{tab.title}}" ng-show="false">
+          <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;" >
             <div ng-bind="tab.content"></div>
             <br/>
+            <img ng-src="img/drive.png" height="45" width="45" alt="">
             <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
           </div>
         </md-tab>
