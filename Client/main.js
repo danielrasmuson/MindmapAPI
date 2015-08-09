@@ -25,7 +25,7 @@ function BodyController(Mindmap, Drive){
 
               // this is where you will query google drive for folders
               Mindmap
-                .addNode(doc.title, folders[0].nodeId)
+                .addNode(doc.title, doc.link, folders[0].nodeId)
                 .then(function(status){
                   reloadMindmap();
                   swal({
@@ -67,11 +67,11 @@ function Mindmap($http, $q, SERVER_DOMAIN){
     return deferred.promise;
   }
 
-  function addNode(title, parentId){
+  function addNode(title, link, parentId){
     var deferred = $q.defer();
 
     $http
-      .get(SERVER_DOMAIN+'map/add?title='+title+'&parent='+parentId)
+      .get(SERVER_DOMAIN+'map/add?title='+title+'&parent='+parentId+"&link="+link)
       .then(function(res){
         deferred.resolve(res.data);
       })

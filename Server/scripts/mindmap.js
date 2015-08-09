@@ -75,13 +75,14 @@ function getNodes(mapId){
   });
 }
 
-function newNode({mapId, parentId, title}){
+function newNode({mapId, parentId, title, link}){
   return Rx.Observable.create((observer)=>{
     _get({
         method: 'mm.ideas.insert',
         map_id: mapId,
         parent_id: parentId,
         title: title,
+        link: link
       })
       .forEach((data)=>{
         observer.onNext(data)

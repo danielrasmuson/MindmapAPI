@@ -73,7 +73,8 @@ function GoogleDrive($q){
       .execute(function(resp) {
         deferred.resolve({
           title: resp.title,
-          id: resp.id
+          id: resp.id,
+          link: resp.alternateLink
         });
       });
 
@@ -97,11 +98,7 @@ function GoogleDrive($q){
           var files = resp.items;
           if (files && files.length > 0) {
             for (var i = 0; i < files.length; i++) {
-              
               filePromies.push(getFile(files[i].id));
-
-              // debugger
-                
             }
           } else {
             appendPre('No files found.');

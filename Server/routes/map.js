@@ -36,6 +36,7 @@ router.get('/add', function(req, res, next) {
     mapId: angelHackMapId,
     parentId: req.param('parent'),
     title: req.param('title'),
+    link: req.param('link'),
   }).forEach(function(result){
     res.send(result);
   })
