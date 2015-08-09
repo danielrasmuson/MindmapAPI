@@ -15,7 +15,6 @@
   <md-toolbar>
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" aria-label="Settings">
-        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
       </md-button>
       <h2 style="padding-left: 10%;">
         <span style="font-weight: 800;">Connect-Map:</span>
@@ -23,10 +22,8 @@
       </h2>
       <span flex></span>
       <md-button class="md-icon-button" aria-label="Favorite">
-        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
       </md-button>
       <md-button class="md-icon-button" aria-label="More">
-        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
       </md-button>
     </div>
   </md-toolbar>
@@ -47,9 +44,9 @@
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
-            <p>cool stuff </p>
+            <p>Clicking "Connect To Drive" will update any field having a google drive url with the documents at that google drive url.</p>
             </md-content>
-            <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive!</md-button>
+            <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive</md-button>
          </md-tab-body>
         </md-tab>
         <md-tab selected="true">
@@ -60,9 +57,9 @@
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
-            <p>cool stuff </p>
+            <p>Clicking "Connect To Gmail" will update any field preceded with the keyword: "gmail-label:" by pulling all of your gmail communications having that keyword.</p>
             </md-content>
-            <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive!</md-button>
+            <md-button class="connect-btn">Connect To Gmail</md-button>
          </md-tab-body>
         </md-tab>
         <md-tab>
@@ -73,9 +70,9 @@
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
-            <p>cool asana stuff </p>
+            <p>clicking "Connect To Asana" will update any field having asana links with the task associated with the project.</p>
             </md-content>
-            <md-button class="connect-btn" >Connect!</md-button>
+            <md-button class="connect-btn" >Connect To Asana</md-button>
          </md-tab-body>
         </md-tab>
         <md-tab>
@@ -86,9 +83,9 @@
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
-            <p>cool trello stuff </p>
+            <p>clicking "Connect To Trello" will update any field wih a trello link with the title name of the various notes in that project or sub-project.</p>
             </md-content>
-            <md-button class="connect-btn" >Connect!</md-button>
+            <md-button class="connect-btn" >Connect To Trello</md-button>
          </md-tab-body>
         </md-tab>
         <md-tab>
@@ -99,9 +96,9 @@
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
-            <p>cool twitter stuff </p>
+            <p>clicking "Post To Twitter" will post the content of any field whose first words is "twitter:" to your twitter account.</p>
             </md-content>
-            <md-button class="connect-btn" >Connect!</md-button>
+            <md-button class="connect-btn" >Post To Twitter</md-button>
          </md-tab-body>
         </md-tab>
         <md-tab>
@@ -112,22 +109,11 @@
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
-            <p>cool twitter stuff </p>
+            <p>clicking "Post To Facebook" will post the content of any field whose first words is "facebook:" to your facebook account.</p>
             </md-content>
-            <md-button class="connect-btn" >Connect!</md-button>
+            <md-button class="connect-btn">Post to Facebook</md-button>
          </md-tab-body>
         </md-tab> 
-
-<!--         <md-tab ng-repeat="tab in tabs"
-                ng-disabled="tab.disabled"
-                label="{{tab.title}}" ng-show="false">
-          <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;" >
-            <div ng-bind="tab.content"></div>
-            <br/>
-            <img ng-src="img/drive.png" height="45" width="45" alt="" ng-click="bodyCtrl.attachDriveFiles()">
-            <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
-          </div>
-        </md-tab> -->
       </md-tabs>
     </md-content>
   </div>
