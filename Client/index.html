@@ -78,6 +78,19 @@
         <md-tab>
           <md-tab-label>
             <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
+               <img src="img/evernote.png" height="35px" width="35px" class="integration-icon">
+             </md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>clicking "Connect To Evernote" will update any field having evernote links with the note associated with the project.</p>
+            </md-content>
+            <md-button class="connect-btn" >Connect To Evernote</md-button>
+         </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
                <img src="img/trello.png" height="35px" width="35px" class="integration-icon">
              </md-icon> 
           </md-tab-label>
@@ -119,7 +132,7 @@
   </div>
 
 
-  <iframe width="100%" height="700" frameborder="0" scrolling="auto" id="mindmap" src="https://www.mindmeister.com:/maps/show?api_key=26182cd389ae2e1dbdcca1090e91e682&auth_token=3188a3c9fce4944343512e703112fae3&id=415467547&api_sig=df650f391fdf43a1f43c70beb0af0910"></iframe>
+  <iframe width="100%" height="640" frameborder="0" scrolling="auto" id="mindmap" src="https://www.mindmeister.com:/maps/show?api_key=26182cd389ae2e1dbdcca1090e91e682&auth_token=3188a3c9fce4944343512e703112fae3&id=415467547&api_sig=df650f391fdf43a1f43c70beb0af0910"></iframe>
 
 
 </div>

@@ -96,6 +96,7 @@ function GoogleDrive($q){
     var deferred = $q.defer();
 
     auth().then(function(){
+      debugger;
       gapi.client.drive.files.get({
         'fileId': folderId
       })
