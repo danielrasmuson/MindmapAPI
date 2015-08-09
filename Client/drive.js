@@ -22,6 +22,7 @@ function GoogleDrive($q){
 
     function handleAuthResult(authResult) {
       if (authResult && !authResult.error) {
+        authData = authResult;
         loadDriveApi();
       } 
     }
@@ -91,10 +92,27 @@ function GoogleDrive($q){
     return deferred.promise;
   }
 
+  function getFolder(folderId){
+    var deferred = $q.defer();
 
+    auth().then(function(){
+      gapi.client.drive.files.get({
+        'fileId': folderId
+      })
+      .execute(function(resp) {
+        deferred.resolve({
+          title: resp.title,
+          id: resp.id,
+          link: resp.alternateLink
+        });
+      });
+    })
 
+    return deferred.promise;
+  }
 
   return {
+    getFolder: getFolder,
     getFiles: getFiles
   }  
 }

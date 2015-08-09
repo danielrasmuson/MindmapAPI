@@ -18,15 +18,21 @@ function BodyController(Mindmap, Drive){
       .driveFolders()
       .then(function(folders){
 
-        // debugger;
+        // Todo: You Might be doing this [0] wrong
         Drive
           .getFiles(folders[0].driveId)
           .then(function(docs){
 
-            docs.forEach(function(doc){
+            Drive
+              .getFolder(folders[0].driveId)
+              .then(function(folder){
+                console.log('folder');
+                console.log(folder);
+                // call file change here
+              })
 
-              // this is where you will query google drive for folders
-              // debugger;
+
+            docs.forEach(function(doc){
               Mindmap
                 .addNode(doc.title, doc.link, folders[0].nodeId)
                 .then(function(status){
@@ -45,6 +51,11 @@ function BodyController(Mindmap, Drive){
           })
       })
   }
+
+ 
+  setTimeout(function(){
+  }, 1000);
+
 
 
 
