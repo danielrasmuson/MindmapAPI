@@ -34,27 +34,87 @@
 
 <div style="padding-left: 10%; width: 80%;">
 
-<!--   <div class="button-list ">
-    <button class="btn">
-      <img ng-click="bodyCtrl.attachDriveFiles()" src="img/drive.png" height="50" width="50" alt="">
-    </button>
-
-  </div> -->
 
 
-  <div ng-controller="TabsCtrl" class="sample" layout="column" style="padding-top: 20px; padding-bottom: 20px; height: 250px;">
+  <div class="sample" layout="column" style="padding-top: 20px; padding-bottom: 20px; height: 250px; text-align: center;">
     <md-content class="md-padding" style="height: 250px;">
       <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect >
-        <md-tab ng-repeat="tab in tabs"
+        <md-tab >
+          <md-tab-label>
+            <md-icon>
+              <img src="img/drive.png" height="35px" width="35px" class="integration-icon">
+            <md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>cool stuff </p>
+            </md-content>
+            <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive!</md-button>
+         </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <md-icon>
+               <img src="img/asana.png" height="35px" width="35px" class="integration-icon">
+             <md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>cool asana stuff </p>
+            </md-content>
+            <md-button class="connect-btn" >Connect!</md-button>
+         </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <md-icon>
+               <img src="img/trello.png" height="35px" width="35px" class="integration-icon">
+             <md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>cool trello stuff </p>
+            </md-content>
+            <md-button class="connect-btn" >Connect!</md-button>
+         </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <md-icon>
+               <img src="img/twitter.png" height="35px" width="35px" class="integration-icon">
+             <md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>cool twitter stuff </p>
+            </md-content>
+            <md-button class="connect-btn" >Connect!</md-button>
+         </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <md-icon>
+               <img src="img/facebook.png" height="35px" width="35px" class="integration-icon">
+             <md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>cool twitter stuff </p>
+            </md-content>
+            <md-button class="connect-btn" >Connect!</md-button>
+         </md-tab-body>
+        </md-tab> 
+
+<!--         <md-tab ng-repeat="tab in tabs"
                 ng-disabled="tab.disabled"
                 label="{{tab.title}}" ng-show="false">
           <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;" >
             <div ng-bind="tab.content"></div>
             <br/>
-            <img ng-src="img/drive.png" height="45" width="45" alt="">
+            <img ng-src="img/drive.png" height="45" width="45" alt="" ng-click="bodyCtrl.attachDriveFiles()">
             <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
           </div>
-        </md-tab>
+        </md-tab> -->
       </md-tabs>
     </md-content>
   </div>

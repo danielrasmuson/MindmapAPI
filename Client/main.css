@@ -18,6 +18,16 @@ body{
   float: right;
 }
 
+.connect-btn{
+  background-color: #EC407A;
+}
+
+.integration-icon{
+  position: absolute; 
+  top: 0px;
+}
+
+
 .tabsdemoDynamicTabs md-content {
   background-color: transparent !important; }
   .tabsdemoDynamicTabs md-content md-tabs {
