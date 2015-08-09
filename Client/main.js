@@ -9,6 +9,15 @@ function BodyController(Mindmap, Drive){
   var me = this;
   var mindmap = document.getElementById('mindmap');
 
+
+  me.panel = {
+    height: '86px'
+  }
+
+  me.toggleProviderContainer = function(){
+    me.panel.height = '250px';
+  }
+
   function reloadMindmap(){
     mindmap.src = mindmap.src; 
   }

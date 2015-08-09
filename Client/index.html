@@ -36,27 +36,14 @@
 
 
 
-  <div class="sample" layout="column" style="padding-top: 20px; padding-bottom: 20px; height: 250px; text-align: center;">
-    <md-content style="height: 250px;">
+  <div class="sample integration-options-container" layout="column" ng-style="{ 'height' : bodyCtrl.panel.height}" style="padding-top: 20px; padding-bottom: 20px; text-align: center;">
+    <md-content style="height: 250px">
       <md-tabs selectedIndex="-1" md-border-bottom md-autoselect >
         <md-tab>
           <md-tab-label>
-            <md-icon>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
               <img src="img/drive.png" height="35px" width="35px" class="integration-icon">
-            <md-icon> 
-          </md-tab-label>
-           <md-tab-body ng-show="false">
-            <md-content class="md-padding">
-            <p>cool stuff </p>
-            </md-content>
-            <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive!</md-button>
-         </md-tab-body>
-        </md-tab>
-        <md-tab selected="true">
-          <md-tab-label>
-            <md-icon>
-              <img src="img/gmail.png" height="35px" width="45px" class="integration-icon">
-            <md-icon> 
+            </md-icon> 
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
@@ -67,9 +54,22 @@
         </md-tab>
         <md-tab>
           <md-tab-label>
-            <md-icon>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
+              <img src="img/gmail.png" height="35px" width="45px" class="integration-icon">
+            </md-icon> 
+          </md-tab-label>
+           <md-tab-body ng-show="false">
+            <md-content class="md-padding">
+            <p>cool stuff </p>
+            </md-content>
+            <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive!</md-button>
+         </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
                <img src="img/asana.png" height="35px" width="35px" class="integration-icon">
-             <md-icon> 
+             </md-icon> 
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
@@ -80,9 +80,9 @@
         </md-tab>
         <md-tab>
           <md-tab-label>
-            <md-icon>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
                <img src="img/trello.png" height="35px" width="35px" class="integration-icon">
-             <md-icon> 
+             </md-icon> 
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
@@ -93,9 +93,9 @@
         </md-tab>
         <md-tab>
           <md-tab-label>
-            <md-icon>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
                <img src="img/twitter.png" height="35px" width="35px" class="integration-icon">
-             <md-icon> 
+             </md-icon> 
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
@@ -106,9 +106,9 @@
         </md-tab>
         <md-tab>
           <md-tab-label>
-            <md-icon>
+            <md-icon ng-click="bodyCtrl.toggleProviderContainer()">
                <img src="img/facebook.png" height="35px" width="35px" class="integration-icon">
-             <md-icon> 
+             </md-icon> 
           </md-tab-label>
            <md-tab-body ng-show="false">
             <md-content class="md-padding">
