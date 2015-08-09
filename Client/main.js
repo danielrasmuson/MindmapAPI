@@ -7,6 +7,7 @@ angular.module('app')
 
 function BodyController(Mindmap, Drive){
   var me = this;
+
   var mindmap = document.getElementById('mindmap');
 
 
@@ -25,6 +26,7 @@ function BodyController(Mindmap, Drive){
   function reloadMindmap(){
     mindmap.src = mindmap.src; 
   }
+
 
   me.attachDriveFiles = function(){
     Mindmap
@@ -68,13 +70,16 @@ function BodyController(Mindmap, Drive){
   }, 1000);
 
 
-
+clickme=function(){
+   console.log('folder');
+}
 
 
   setTimeout(function(){
     mindmap.focus();
   }, 1000)
 }
+  
 
 function Mindmap($http, $q, SERVER_DOMAIN){
   function driveFolders(){

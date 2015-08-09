@@ -2,3 +2,13 @@ Server/node_modules
 Server/.env
 Client/bower_components
 *_es5.js
+
+.DS_Store
+Client/.DS_Store
+Client/img/.DS_Store
+Client/img/facebook_svg_icon.png
+bower_components/
+client_secret.json
+googleDrive.js
+node_modules/
+quickstart.html
