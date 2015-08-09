@@ -1,5 +1,5 @@
 body{
-  background-color: #607D8B;
+  background-color: #EC407A;
   /*background-color: #7E57C2;*/
   /*background-color: #1565C0;*/
   /*http://www.google.com/design/spec/style/color.html#color-color-palette*/
@@ -9,9 +9,8 @@ body{
   color: white;
 }
 .md-toolbar-tools{
-  background-color: #7E57C2;
+  background-color: #0af;
   color: white;
-
 }
 
 .button-list{
