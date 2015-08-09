@@ -44,7 +44,8 @@ function GoogleDrive($q){
   }
   
 
-  function getFiles(folderId, callback){
+  function getFiles(folderId){
+    var deferred = $q.defer();
 
 
     function getFile(fileId){
@@ -78,7 +79,7 @@ function GoogleDrive($q){
             }
           } 
           $q.all(filePromies).then(function(data){
-            callback(data);
+            deferred.resolve(data);
           })
         });
     }
@@ -86,7 +87,10 @@ function GoogleDrive($q){
     auth().then(function(){
       listFiles();
     })
+
+    return deferred.promise;
   }
+
 
 
 

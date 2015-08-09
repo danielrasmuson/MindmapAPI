@@ -19,10 +19,10 @@ function BodyController(Mindmap, Drive){
       .then(function(folders){
 
         // debugger;
-        Drive.getFiles(
-          // "0B_2gh7Xek2PAfk5SWEhmZV9MY1k5Y3N1VEN2VTkzZXVBZkk3MnJkRTlQeFI4RFZvbFE5Umc",
-          folders[0].driveId,
-          function(docs){
+        Drive
+          .getFiles(folders[0].driveId)
+          .then(function(docs){
+
             docs.forEach(function(doc){
 
               // this is where you will query google drive for folders
@@ -42,9 +42,7 @@ function BodyController(Mindmap, Drive){
                   );
                 })
             })
-          }
-        )
-        
+          })
       })
   }
 
