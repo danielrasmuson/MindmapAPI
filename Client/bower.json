@@ -1,0 +1,21 @@
+{
+  "name": "Client",
+  "version": "0.0.0",
+  "homepage": "https://github.com/danielrasmuson/MindmapAPI",
+  "authors": [
+    "Daniel Rasmuson <dan123911@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.4.0",
+    "sweetalert": "~1.1.0",
+    "bootstrap": "~3.3.5"
+  }
+}

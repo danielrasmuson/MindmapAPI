@@ -1,3 +1,4 @@
 Server/node_modules
 Server/.env
+Client/bower_components
 *_es5.js
