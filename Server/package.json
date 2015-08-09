@@ -1,9 +1,18 @@
 {
-  "name": "mindmapapi",
-  "version": "1.0.0",
-  "description": "",
-  "main": "test.js",
+  "name": "Temp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
+    "body-parser": "~1.12.4",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.12.4",
+    "jade": "~1.9.2",
+    "morgan": "~1.5.3",
+    "serve-favicon": "~2.2.1",
     "dotenv": "^1.2.0",
     "lodash": "^3.10.1",
     "md5": "^2.0.0",
@@ -11,11 +20,5 @@
     "rx": "^3.0.0",
     "shelljs": "^0.5.1",
     "xml2js": "^0.4.10"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Daniel Rasmuson <danielrasmuson@gmail.com> (http://danielrasmuson.com)",
-  "license": "ISC"
+  }
 }
