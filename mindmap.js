@@ -66,18 +66,44 @@ function maps(){
 function getNodes(mapId){
   return Rx.Observable.create((observer)=>{
     _get({
-        method: 'mm.maps.getSlides',
+        method: 'mm.maps.getMap',
         map_id: mapId
       })
       .forEach((data)=>{
-        observer.onNext(data.rsp.err);
+        observer.onNext(data.rsp.ideas[0].idea);
       }, (err)=>{
         observer.onError(err)
       })
   });
 }
 
+function child({mapId, parentId, title}){
+  return Rx.Observable.create((observer)=>{
+    _get({
+        method: 'mm.ideas.insert',
+        map_id: mapId,
+        parent_id: parentId ,
+        title: title,
+      })
+      .forEach((data)=>{
+        observer.onNext(data.rsp.ideas[0].idea);
+      }, (err)=>{
+        observer.onError(err)
+      })
+  });
+}
 
-// maps(angelHackMapId).forEach((nodes)=>{
-//   console.log(nodes);
-// })
+function isDriveLink(text){
+  return text.indexOf('https://drive.google.com') !== -1;
+}
+
+getNodes(angelHackMapId).forEach((nodes)=>{
+  nodes
+    .filter((node)=>{
+      return isDriveLink(node.title[0])
+    })
+    .forEach((node)=>{
+      // isDriveLink(node[])
+      console.log(node)
+    })
+})
