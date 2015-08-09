@@ -19,7 +19,11 @@ body{
 }
 
 .connect-btn{
-  background-color: #EC407A;
+  background-color: #7E57C2;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  /*#EC407A*/
 }
 
 .integration-icon{
