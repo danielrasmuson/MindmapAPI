@@ -23,11 +23,22 @@ router.get('/drive/folder', function(req, res, next) {
         })
         .map(function(node){
           return {
-            id: _.last(node.title[0].split('/'))
+            nodeId: node.id[0],
+            driveId: _.last(node.title[0].split('/'))
           }
         })
       res.json(folders);
     })
+});
+
+router.get('/add', function(req, res, next) {
+  mindmap.newNode({
+    mapId: angelHackMapId,
+    parentId: req.param('parent'),
+    title: req.param('title'),
+  }).forEach(function(result){
+    res.send(result);
+  })
 });
 
 module.exports = router;

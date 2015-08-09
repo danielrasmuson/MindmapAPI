@@ -7,7 +7,6 @@ angular.module('app')
 
 function BodyController(Mindmap){
   var me = this;
-  me.hello = 'hi';
   me.attachDriveFiles = function(){
     swal("Good job!", "You clicked the button!", "success");
   }
@@ -15,9 +14,16 @@ function BodyController(Mindmap){
   Mindmap
     .driveFolders()
     .then(function(folders){
-      console.log('folder');
-      console.log(folders);
+
+      // this is where you will query google drive for folders
+      Mindmap
+        .addNode('My New Awesome Node', folders[0].nodeId)
+        .then(function(status){
+        })
+
     })
+
+
 
   setTimeout(function(){
     document.querySelector('#mindmap').focus();
@@ -37,7 +43,20 @@ function Mindmap($http, $q, SERVER_DOMAIN){
     return deferred.promise;
   }
 
+  function addNode(title, parentId){
+    var deferred = $q.defer();
+
+    $http
+      .get(SERVER_DOMAIN+'map/add?title='+title+'&parent='+parentId)
+      .then(function(res){
+        deferred.resolve(res.data);
+      })
+
+    return deferred.promise;
+  }
+
   return {
-    driveFolders: driveFolders 
+    driveFolders: driveFolders,
+    addNode: addNode
   } 
 }

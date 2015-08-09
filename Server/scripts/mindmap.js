@@ -92,6 +92,7 @@ function newNode({mapId, parentId, title}){
 }
 
 module.exports = {
-  nodes: getNodes
+  nodes: getNodes,
+  newNode: newNode
 }
 
