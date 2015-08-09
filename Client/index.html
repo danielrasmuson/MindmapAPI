@@ -8,31 +8,24 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body ng-app="app" ng-controller="BodyController as bodyCtrl">
 
+{{bodyCtrl.hello}}
 
 <iframe width="90%" height="800" frameborder="0" scrolling="auto" id="mindmap" src="https://www.mindmeister.com:/maps/show?api_key=26182cd389ae2e1dbdcca1090e91e682&auth_token=3188a3c9fce4944343512e703112fae3&id=415467547&api_sig=df650f391fdf43a1f43c70beb0af0910"></iframe>
 
 <div class="button-list">
   <button class="btn">
-    <img id="drive" src="img/drive.png" height="50" width="50" alt="">
+    <img ng-click="bodyCtrl.attachDriveFiles()" src="img/drive.png" height="50" width="50" alt="">
   </button>
 </div>
 
 
 <script type="text/javascript" src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
 
 
-<script>
-  $('#drive').click(function(){
-    swal("Good job!", "You clicked the button!", "success");
-  })
-
-  setTimeout(function(){
-    document.querySelector('#mindmap').focus();
-  }, 1000)
-</script>
   
 </body>
 </html>
