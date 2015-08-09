@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mindmap = require('../scripts/mindmap_es5.js');
+var _ = require('lodash');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -21,7 +22,9 @@ router.get('/drive/folder', function(req, res, next) {
           return isDriveLink(node.title[0])
         })
         .map(function(node){
-          return {id: node.id[0]}
+          return {
+            id: _.last(node.title[0].split('/'))
+          }
         })
       res.json(folders);
     })
