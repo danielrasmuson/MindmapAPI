@@ -77,16 +77,16 @@ function getNodes(mapId){
   });
 }
 
-function child({mapId, parentId, title}){
+function newNode({mapId, parentId, title}){
   return Rx.Observable.create((observer)=>{
     _get({
         method: 'mm.ideas.insert',
         map_id: mapId,
-        parent_id: parentId ,
+        parent_id: parentId,
         title: title,
       })
       .forEach((data)=>{
-        observer.onNext(data.rsp.ideas[0].idea);
+        observer.onNext(data)
       }, (err)=>{
         observer.onError(err)
       })
@@ -103,7 +103,12 @@ getNodes(angelHackMapId).forEach((nodes)=>{
       return isDriveLink(node.title[0])
     })
     .forEach((node)=>{
-      // isDriveLink(node[])
-      console.log(node)
+      newNode({
+        mapId: angelHackMapId,
+        parentId: node.id[0],
+        title: 'My New Inserted Node'
+      }).forEach((data)=>{
+        console.log(data)
+      })
     })
 })
