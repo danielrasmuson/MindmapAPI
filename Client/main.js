@@ -41,11 +41,10 @@ function BodyController(Mindmap, Drive){
                     }
                   );
                 })
-
-
             })
           }
         )
+        
       })
   }
 

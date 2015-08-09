@@ -2,9 +2,10 @@ angular.module('app')
 .service('Drive', GoogleDrive);
 
 function GoogleDrive($q){
-  
+  var authData;
 
-  function getFiles(folderId, callback){
+  function auth(){
+    var deferred = $q.defer();
     // Your Client ID can be retrieved from your project in the Google
     // Developer Console, https://console.developers.google.com
     var CLIENT_ID = '642063020701-6jg6jbknhlnf1gfl6g4i6mt0a733d0ul.apps.googleusercontent.com';
@@ -25,24 +26,26 @@ function GoogleDrive($q){
       } 
     }
 
-    function handleAuthClick(event) {
-      gapi.auth.authorize(
-        {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
-        handleAuthResult);
-      return false;
-    }
-
-    function getFilesPerFolder(){
-      // currentFolder = document.querySelector('input').value;
-      handleAuthClick(event);
-    }
-
-    /**
-     * Load Drive API client library.
-     */
     function loadDriveApi() {
-      gapi.client.load('drive', 'v2', listFiles);
+      gapi.client.load('drive', 'v2', function(){
+        deferred.resolve();
+      });
     }
+
+    if (authData){
+      deferred.resolve()
+    } else{
+      gapi.auth.authorize(
+          {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+          handleAuthResult);
+    }
+
+    return deferred.promise;
+  }
+  
+
+  function getFiles(folderId, callback){
+
 
     function getFile(fileId){
       var deferred = $q.defer();
@@ -80,19 +83,14 @@ function GoogleDrive($q){
         });
     }
 
-    // function getFolder(){
-
-    // }
-
-    getFilesPerFolder();
+    auth().then(function(){
+      listFiles();
+    })
   }
 
 
 
-
-
   return {
-    // getFolder: getFolder,
     getFiles: getFiles
   }  
 }
