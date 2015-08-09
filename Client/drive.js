@@ -77,10 +77,12 @@ function GoogleDrive($q){
           $q.all(filePromies).then(function(data){
             callback(data);
           })
-
         });
-
     }
+
+    // function getFolder(){
+
+    // }
 
     getFilesPerFolder();
   }
@@ -90,6 +92,7 @@ function GoogleDrive($q){
 
 
   return {
+    // getFolder: getFolder,
     getFiles: getFiles
   }  
 }

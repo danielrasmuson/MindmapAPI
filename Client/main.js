@@ -18,12 +18,15 @@ function BodyController(Mindmap, Drive){
       .driveFolders()
       .then(function(folders){
 
+        // debugger;
         Drive.getFiles(
-          "0B_2gh7Xek2PAfk5SWEhmZV9MY1k5Y3N1VEN2VTkzZXVBZkk3MnJkRTlQeFI4RFZvbFE5Umc",
+          // "0B_2gh7Xek2PAfk5SWEhmZV9MY1k5Y3N1VEN2VTkzZXVBZkk3MnJkRTlQeFI4RFZvbFE5Umc",
+          folders[0].driveId,
           function(docs){
             docs.forEach(function(doc){
 
               // this is where you will query google drive for folders
+              // debugger;
               Mindmap
                 .addNode(doc.title, doc.link, folders[0].nodeId)
                 .then(function(status){
