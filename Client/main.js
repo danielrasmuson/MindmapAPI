@@ -1,4 +1,4 @@
-angular.module('app', ['ngMaterial']);
+angular.module('app', ['ngMaterial', 'offClick']);
 
 angular.module('app')
 .constant('SERVER_DOMAIN', 'http://localhost:3000/')
@@ -12,6 +12,10 @@ function BodyController(Mindmap, Drive){
 
   me.panel = {
     height: '86px'
+  }
+
+  me.test = function(){
+    me.panel.height = '86px';
   }
 
   me.toggleProviderContainer = function(){

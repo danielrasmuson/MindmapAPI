@@ -36,7 +36,7 @@
 
 
 
-  <div class="sample integration-options-container" layout="column" ng-style="{ 'height' : bodyCtrl.panel.height}" style="padding-top: 20px; padding-bottom: 20px; text-align: center;">
+  <div class="sample integration-options-container" layout="column" ng-style="{ 'height' : bodyCtrl.panel.height}" style="padding-top: 20px; padding-bottom: 20px; text-align: center;" off-click="bodyCtrl.test()">
     <md-content style="height: 250px">
       <md-tabs selectedIndex="-1" md-border-bottom md-autoselect >
         <md-tab>
@@ -144,6 +144,8 @@
 <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="bower_components/angular-off-click/offClick.js"></script>
+
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="drive.js"></script>
   

@@ -17,6 +17,7 @@
     "fontawesome": "~4.4.0",
     "sweetalert": "~1.1.0",
     "bootstrap": "~3.3.5",
-    "angular": "~1.4.3"
+    "angular": "~1.4.3",
+    "angular-off-click": "~0.0.7"
   }
 }
