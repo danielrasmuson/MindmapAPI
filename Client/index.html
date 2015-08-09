@@ -38,8 +38,8 @@
 
   <div class="sample" layout="column" style="padding-top: 20px; padding-bottom: 20px; height: 250px; text-align: center;">
     <md-content style="height: 250px;">
-      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect >
-        <md-tab >
+      <md-tabs selectedIndex="-1" md-border-bottom md-autoselect >
+        <md-tab>
           <md-tab-label>
             <md-icon>
               <img src="img/drive.png" height="35px" width="35px" class="integration-icon">
@@ -52,7 +52,7 @@
             <md-button class="connect-btn" ng-click="bodyCtrl.attachDriveFiles()">Connect To Drive!</md-button>
          </md-tab-body>
         </md-tab>
-        <md-tab >
+        <md-tab selected="true">
           <md-tab-label>
             <md-icon>
               <img src="img/gmail.png" height="35px" width="45px" class="integration-icon">

@@ -23,7 +23,10 @@ body{
   color: white;
   padding-left: 30px;
   padding-right: 30px;
-  /*#EC407A*/
+}
+
+.connect-btn:hover{
+  background-color: #BA68C8 !important;
 }
 
 .integration-icon{
